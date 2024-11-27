@@ -45,13 +45,13 @@ body {
     flex-direction: column;
     min-height: 100svh;
     /* min-height: 100%; */
- 
+    gap: 35px;
 }
 
 .main-section {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    /* gap: 35px; */
     padding-left: 50px;
     padding-right: 50px;
     width: 100%;
@@ -429,7 +429,7 @@ nav {
 footer {
     background-color: var(--main-bg-color);
     display: flex;
-    margin-top: 35px;
+    /* margin-top: 35px; */
     /* pour reproduire le padding du main qui englobe le footer sur la maquette (mais pas le header, du coup impossible de mettre le padding sur le parent main container) */
     margin-left: 50px;
     margin-right: 50px;
@@ -493,14 +493,18 @@ footer {
   
     body {
         margin: 0;
+        /* align-items: flex-start; */
+        width: 100%;
     } 
 
-    /* html,body{
+    /* body {
+        display: flex;
+        justify-content: center;  
+        gap: 30px;  
         height: 100%;
-        margin: 0;
-        padding: 0;
+        flex-direction: column;
+        align-items: center;
     } */
-   
 
     .main-container {
         padding: 0px;
@@ -508,7 +512,7 @@ footer {
         /* min-height: 100%; */
         display: flex;
         flex-direction: column;
-        gap : 30px;
+        /* gap : 30px; */
         /* min-height: 100vh; */
         /* min-height: 5000px; */
     }
@@ -679,6 +683,10 @@ footer {
 
     .card{
         margin: 0;     
+    }
+
+    .activites{
+        width: 100%;
     }
     
     .activites-cards {
