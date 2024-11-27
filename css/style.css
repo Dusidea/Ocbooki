@@ -2,7 +2,7 @@
 * {
     font-family: 'Raleway', sans-serif;
     box-sizing: border-box;
-  
+
 }
 
 /* * {
@@ -31,10 +31,11 @@ body {
     gap: 30px;  
     height: 100%;
     flex-direction: column;
+    align-items: center;
 }
 
 .main-container {
-    width: 100%;
+    /* max-width: 100%; */
     max-width: 1440px;
     min-width: 320px;
  
@@ -42,9 +43,9 @@ body {
     /* height: 100%; */
     display: flex;
     flex-direction: column;
-    /* min-height: 100vh; */
-    min-height: 100%;
-  
+    min-height: 100svh;
+    /* min-height: 100%; */
+ 
 }
 
 .main-section {
@@ -53,6 +54,7 @@ body {
     gap: 35px;
     padding-left: 50px;
     padding-right: 50px;
+    width: 100%;
 }
 
 a {
@@ -430,7 +432,7 @@ footer {
     margin-top: 35px;
     /* pour reproduire le padding du main qui englobe le footer sur la maquette (mais pas le header, du coup impossible de mettre le padding sur le parent main container) */
     margin-left: 50px;
-    margin-left: 50px;
+    margin-right: 50px;
   
 }
 
@@ -508,6 +510,7 @@ footer {
         flex-direction: column;
         gap : 30px;
         /* min-height: 100vh; */
+        /* min-height: 5000px; */
     }
 
     .main-section {
@@ -573,7 +576,6 @@ footer {
         /* flex-shrink: 1;
         max-width: 100%; */
         flex: 0 1 auto; /* Taille automatique */
-      
 
     }
 
@@ -693,17 +695,19 @@ footer {
         padding: 30px;
         gap: 50px;
         margin: 0;
-        
+        /* margin-top: auto;  tenté pour évité la troncation avec min heigh 100 sv sur le main container, ne fonctionne pas*/
+        width: 100%;
+        /* min-height: 600px; */
      /*    
      position: relative;
     width: 100%; 
       height: auto; */
       /* background-color: rgba(255, 0, 0, 0.5); */
-   
     }
     
     .footer-section{
         padding: 0px;
+        width: 100%;
     }
    
 }
