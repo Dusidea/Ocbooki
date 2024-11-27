@@ -2,11 +2,12 @@
 * {
     font-family: 'Raleway', sans-serif;
     box-sizing: border-box;
+  
 }
 
 /* * {
-    border: 1px solid red; /* Facilite la visualisation 
-} */
+   border: 1px solid red; /* Facilite la visualisation 
+}  */
 
 :root {
     --main-color: #0065FC;
@@ -18,16 +19,40 @@
     color: var(--main-color);
 }
 
+/* html {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+} */
+
 body {
     display: flex;
-    justify-content: center;    
+    justify-content: center;  
+    gap: 30px;  
+    height: 100%;
+    flex-direction: column;
 }
 
 .main-container {
     width: 100%;
     max-width: 1440px;
     min-width: 320px;
-    padding: 0 50px;
+ 
+    /* height: auto; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* min-height: 100vh; */
+    min-height: 100%;
+  
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 a {
@@ -38,7 +63,6 @@ a {
 .section-title {
     margin: 0;
     font-size: 22px;
-    /* ajouter une propriété background color pour changer la couleur de fond ici grise doit devenir blanc */
 }
 
 .card {
@@ -48,6 +72,7 @@ a {
     filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
 }
 
+/*présent dans le code de base, je laisse donc l'objet img*/
 .card img {
     object-fit: cover;
 }
@@ -67,6 +92,7 @@ a {
 .not-card-title{
     font-size: 18px;
     margin: 0;
+    font-weight: bold;
 }
 
 /* Ajout de propriétés sur le header pour afficher le logo à gauche et les boutons de nav à droite (justify). la direction est row par défaut*/
@@ -76,25 +102,43 @@ header {
 }
 /* les paddings ne sont pas les mêmes pour le logo et les boutons, je fais donc une classe spécifique pour le logo*/
 .logo {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px 50px 30px 50px;  
 }
 
-/*Ajout de propriété sur les boutons pour espacement ??*/
-.button{
-      margin-left: 68px; /* le gap est de 68px sur les versions desktop, mobile et large desktop*/
-     
+.logo-img {
+    width:61px;
+    height:19px;
 }
+
+
 /*Ajout de propriété sur les boutons pour le comportement au hover.*/
-.button:hover {
+.nav-button:hover {
     border-top: 2px var(--main-color) solid;
     color: var(--main-color);
 }
 /*Ajout de propriété sur nav pour que les boutons s'affichent cote à cote, en flex*/
 nav {
     display : flex;
+    padding-left: 50px;
+    padding-right: 50px;
+    gap: 68px;
 }
 
+.headline {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.headline-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.headline-text-intro {
+    margin: 0;
+}
 
 #logo_localisation {
     background-color : var(--main-bg-color);
@@ -140,15 +184,14 @@ nav {
 
 .searchbar {
     display: flex;
-    padding: 15px 0px 15px 0px;
-    margin: 15px 0px 15px 0px;
+    max-width: 100%;
 }   
+
+
 
 .filter{
     display: flex;
     align-items: center;
-    padding-bottom: 15px ;
-    margin-bottom: 15px ;
 }
 
 .filter-button-group{
@@ -178,21 +221,26 @@ nav {
 
 .subinfo {
     display: flex;
-    margin-top: 24px;
+    /* margin-top: 24px; */
     align-items: center;
 }
 
 .subinfo .fa-solid {
     display: flex;
     border-radius: 50%;
-    /* #D9D9D9 */
     border : 1px solid #D9D9D9;
-    height: 24px;
-    width: 24px;
+    min-height: 24px;
+    min-width: 24px;
     justify-content: center;
     align-items: center;
     font-size: 10px;
     margin-right: 10px; 
+}
+
+.subinfo-text {
+    margin: 0; 
+    margin-block: 0;
+    text-overflow: ellipsis;
 }
 
 /****** Hebergements And Populaires ***********/
@@ -200,8 +248,8 @@ nav {
     display: flex;
     justify-content: space-between;
     gap: 40px;
-    margin-top: 35px;
-    margin-bottom: 35px;
+    /* margin-top: 35px;
+    margin-bottom: 35px; */
 }
 
 /****** Hebergements ***********/
@@ -211,6 +259,7 @@ nav {
     flex-direction: column;
     align-items: flex-start;
     padding: 30px;  
+    gap: 30px;
     border-radius: 20px;
     background-color: var(--main-bg-color);
 }
@@ -222,8 +271,6 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap : 30px;    
-    padding-top: 30px;
-    padding-bottom: 30px;
 } 
 
 
@@ -237,11 +284,11 @@ nav {
     width: 100%;
     height: auto;
     min-width: 250px;
-    /* margin-top: 33px; avec ce margin, l'écart entre les deux lignes de card est trop important, j'utilise padding bottom et top sur hebergements-cards*/
+    gap: 4px;
 } 
 
 /* cette section définit le style de l'image de la card */
-.hebergements-cards img {
+.hebergements-cards-images {
     max-width: 100%;
     width: 100%;
     height: 124px;
@@ -251,28 +298,29 @@ nav {
 
 /* cette section définit le style du contenu de la card (titre, prix, étoiles)*/
 .hebergements-cards .card-content {
-    
-    margin-top: 4px;
-    padding-left: 15px;
-    padding-right: 15px;
+    /* margin-top: 4px; */
     display: flex;
     flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
     justify-content: space-evenly;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     max-width: 100%;   
+    gap: 8px;
+    
 }
 
 .hebergements-cards .card-title {
     margin : 0;
     max-width: 100%;
-    text-overflow: ellipsis; 
+    /* text-overflow: ellipsis; 
     white-space: nowrap;  
-    overflow: hidden;
+    overflow: hidden; */
+    font-size: 16px;
 }
 
 .hebergements-cards .card-subtitle {
-    margin-bottom: 4px;
-    margin-top: 4px;
+  margin : 0;
 }
 
 
@@ -297,7 +345,7 @@ nav {
     margin-top: 33px;
 }
 
-.populaires-cards img {
+.populaires-cards-images {
     width: 33%;
     height: 136px;
     border-top-left-radius: 20px;
@@ -327,6 +375,7 @@ nav {
 
 .activites {
     padding: 30px; 
+    gap: 30px;
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -335,7 +384,6 @@ nav {
 }
 
 .activites-cards {
-    padding-top: 33px;
     display: flex;
     max-width: 100%;
     max-height: 100%;
@@ -346,18 +394,19 @@ nav {
     justify-content: space-between;  
 } 
 
-.activites-cards a {
-    flex: 1;  /* chaque élément a une taille égale */ 
-    height: auto;
-}
 
  .activites-cards .card {
    display: flex;
    flex-direction: column; 
    height: 100%;
+    
 } 
 
-.activites-cards img {
+.activites-cards-ablock, .populaires-cards-ablock {
+    flex: 1; 
+}
+
+.activites-cards-images {
     width: 100%;
     height: 380px; /*j'ai trop de souci, je fixe une hauteur en px qui correspond au desktop*/
     border-top-left-radius: 20px;
@@ -379,6 +428,10 @@ footer {
     background-color: var(--main-bg-color);
     display: flex;
     margin-top: 35px;
+    /* pour reproduire le padding du main qui englobe le footer sur la maquette (mais pas le header, du coup impossible de mettre le padding sur le parent main container) */
+    margin-left: 50px;
+    margin-left: 50px;
+  
 }
 
 .footer-section{
@@ -415,47 +468,52 @@ footer {
     .populaires-cards {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         gap : 20px;
     }
 
-    .populaires-cards img {
+    .populaires-cards-images {
        height: 146px;
-    }
-
-    .populaires-cards a {
-        flex:1;
-    }
-
-    .populaires-cards .card-title {
-        font-size: 14px;
-    }
-
-    .populaires-cards .card-subtitle {
-        font-size: 13px;
-    }
+    } 
 
     #search-button-mobile {
         display: none;
     }
 
-    .activites-cards img {
+    .activites-cards-images {
         height: 200px;
     }
-   
 
 }
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
     /* ... */
+  
     body {
         margin: 0;
     } 
 
+    /* html,body{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    } */
+   
+
     .main-container {
         padding: 0px;
+        margin: 0;
+        /* min-height: 100%; */
+        display: flex;
+        flex-direction: column;
+        gap : 30px;
+        /* min-height: 100vh; */
     }
+
+    .main-section {
+        padding: 0;
+    }
+    
 
     /* Ajout de propriétés sur le header pour afficher le logo en haut au centre et les boutons de nav en dessous */
     header {
@@ -464,21 +522,24 @@ footer {
         align-items: center;     
         padding-right: 0px;  /* permet de neutraliser le padding paramétré sur la partie desktop */  
         padding-left: 0px;       /* permet de neutraliser le padding paramétré sur la partie desktop */  
-        margin: 0px;        
+        margin: 0px; 
+      
     }    
 
     .logo{
-       /* padding: 30px;  permet d'avoir le logo au centre en hauter mais on met un padding pour tout le bloc header, pas pour le logo seul*/
+        padding: 30px;
         justify-content: center;
     }
 
     /*Ajout de propriété sur nav pour que les boutons s'affichent cote à cote, en flex*/
     nav {
         display : flex;
-        width: 100%;        
+        min-width: 100%;  
+        gap:15px;      
+        padding: 0;
     }
     /*Ajout de propriété sur les boutons pour espacement ??*/
-    .button{
+    .nav-button{
         padding-bottom: 15px; 
         margin: 0px;
         border-bottom: 2px var(--main-bg-color) solid;
@@ -488,7 +549,7 @@ footer {
     }
 
     /*Ajout de propriété sur les boutons pour le comportement au hover.*/
-    .button:hover {
+    .nav-button:hover {
         border-bottom: 2px var(--main-color) solid;
         border-top: 0px var(--main-bg-color) solid;
         color: var(--main-color);
@@ -497,16 +558,52 @@ footer {
     .headline {
         padding-left: 20px ;
         padding-right: 20px ;
-        padding-top: 30px; /*dédiuis par soustraction h mobile - (h header + h body) */
+        /* padding-top: 30px;  */
+        
     }
     
-  
+    .searchbar {
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    #location {
+        width: 100%;
+        /* flex-shrink: 1;
+        max-width: 100%; */
+        flex: 0 1 auto; /* Taille automatique */
+      
+
+    }
+
+    #search-button {
+       display: none;
+    }
+
+    #search-button-mobile {
+        display: flex;
+        background-color: var(--main-color);
+        border-radius: 15px;
+        border : 1px solid var(--main-color);
+        padding: 15px 16px 15px 16px;
+        font-size: 17px;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0px 4px 4px #00000040);
+        margin-left: -10px;
+    }  
+
+    #search-button-mobile .fa-solid {
+        color: white
+    }
+
 
     .filter{
         display: flex;
         align-items: flex-start;
-        padding-bottom: 15px ;
-        margin-bottom: 15px ;
+        /* padding-bottom: 15px ;
+        margin-bottom: 15px ; */
         flex-direction: column;
         gap : 20px;
     }
@@ -525,25 +622,11 @@ footer {
         align-items: center;
     }
 
-    #search-button {
-       display: none;
+    .subinfo {
+        text-overflow: ellipsis;
     }
 
-    #search-button-mobile {
-        display: flex;
-        background-color: var(--main-color);
-        /* je ne gère pas la couleur ici car fa solid est défini à bleu (main color) au général, autant gérer l'exception dans l'html */
-        border-radius: 15px;
-        border : 1px solid var(--main-color);
-        padding: 15px 16px 15px 16px;
-        font-size: 17px;
-        align-items: center;
-        justify-content: center;
-        filter: drop-shadow(0px 4px 4px #00000040);
-        margin-left: -10px;
-    }
-
-    .hebergements-and-populaires {
+      .hebergements-and-populaires {
         flex-direction: column-reverse;
         width: 100%;
         gap: 0;
@@ -554,9 +637,15 @@ footer {
         padding: 20px;
         border-radius: 0px; 
         background-color: white;
+        gap: 15px;
     }
 
-    .hebergements-cards a {
+    .hebergements-cards {
+        gap: 15px;
+        /* width: 100%; */
+    }
+
+    .hebergements-cards-ablock, .populaires-cards-ablock {
         width: 100%;
     }
 
@@ -565,19 +654,29 @@ footer {
         padding: 30px 20px 30px 20px;
         border-radius: 0px; 
         margin-top: 0;
+        gap: 15px;      
     }
+    
 
     .populaires-title {
         max-width: 100%;
-        justify-content: space-around;
+        align-items: center;
     } 
 
     .populaires-cards{
-        flex-direction: column;        
+        flex-direction: column;  
+        
+    }
+    /* .populaires-cards .card {
+        margin: 0;     
+    } */
+
+    .populaires-cards .card {
+        margin: 0;     
     }
 
-    .populaires-cards a {
-        width: 100%;
+    .card{
+        margin: 0;     
     }
     
     .activites-cards {
@@ -585,7 +684,7 @@ footer {
         gap: 15px;
     }
     
-    .activites-cards img {
+    .activites-cards-images {
         height: 141px;
     }
 
@@ -593,12 +692,20 @@ footer {
         flex-direction: column;
         padding: 30px;
         gap: 50px;
+        margin: 0;
+        
+     /*    
+     position: relative;
+    width: 100%; 
+      height: auto; */
+      /* background-color: rgba(255, 0, 0, 0.5); */
+   
     }
     
     .footer-section{
         padding: 0px;
     }
-
+   
 }
 
 /*Ajout d'un message d'erreur pour les écrans inférieurs à la largeur min garantie*/
