@@ -619,12 +619,18 @@ footer {
         flex-wrap: wrap;
         align-items: center;
         font-size: 14px;
+        justify-content: center;
+        
     }
 
    .filter-button{
-        /* display: flex; */
-        flex: 1;
+        /* afin que chaque bouton occupe 50% de l'espace
+         (et je soustrais 7,5*4px de marge des boutons pour
+          que ça ne dépasse pas)*/
+        flex: 0 0 calc(50% - 30px);
         align-items: center;
+        display: flex;
+        
     }
 
     .subinfo {
@@ -721,10 +727,11 @@ footer {
 
 /*Ajout d'un message d'erreur pour les écrans inférieurs à la largeur min garantie*/
 @media (max-width: 319px) {
-    body::before {
+    main::before {
       content: "Votre écran est trop petit pour un affichage optimal.";
       display: block;
       color: red;
+      background-color: gray;
       text-align: center;
       padding: 10px;
       position: fixed;
