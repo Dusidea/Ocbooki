@@ -2,8 +2,15 @@
 * {
     font-family: 'Raleway', sans-serif;
     box-sizing: border-box;
-
+    /* max-width: 100%; avec cette propriété le filtre (filter-button-group) dépasse du conteneur, sans il ne dépasse pas => max width empeche le redimensionnement dynamique*/
+    /* max-height: 100%;  KO !*/
+    /* max-width: 100vw; */
 }
+
+
+* {
+    outline: 1px solid red; /* Visualise les dimensions des éléments */
+  }
 
 /* * {
    border: 1px solid red; /* Facilite la visualisation 
@@ -19,32 +26,34 @@
     color: var(--main-color);
 }
 
-/* html {
+html {
     display: flex;
     flex-direction: column;
-    height: 100%;
-} */
+    overflow-x: hidden; /* Cache les débordements horizontaux non voulus */
+    overflow-y: auto; /* Active la scrollbar verticale */   
+    /* min-height: 100vh; */
+    min-height: 100%;
+}
 
 body {
     display: flex;
     justify-content: center;  
     gap: 30px;  
-    height: 100%;
+    /* height: 100%; */
     flex-direction: column;
     align-items: center;
-}
+    overflow-x: hidden; /* Cache les débordements horizontaux non voulus */
+    overflow-y: auto; /* Active la scrollbar verticale */
+    /* min-height: 100vh; */
+    min-height: 100%;
+};
 
 .main-container {
-    /* max-width: 100%; */
+    max-width: 100%;
     max-width: 1440px;
     min-width: 320px;
- 
-    /* height: auto; */
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
-    min-height: 100svh;
-    /* min-height: 100%; */
     gap: 30px;
 }
 
@@ -55,6 +64,7 @@ body {
     padding-left: 50px;
     padding-right: 50px;
     width: 100%;
+    /* height: 80vh; */
 }
 
 a {
@@ -381,7 +391,7 @@ nav {
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    width: 1340px;
+    /* width: 1340px; */
    
 }
 
@@ -451,7 +461,8 @@ footer {
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
    
- 
+   
+  
     .hebergements-and-populaires {
         flex-direction: column;
         width: 100%;
@@ -495,16 +506,10 @@ footer {
         margin: 0;
         /* align-items: flex-start; */
         width: 100%;
+        /* height: 100%; */
+
     } 
 
-    /* body {
-        display: flex;
-        justify-content: center;  
-        gap: 30px;  
-        height: 100%;
-        flex-direction: column;
-        align-items: center;
-    } */
 
     .main-container {
         padding: 0px;
@@ -514,10 +519,12 @@ footer {
         flex-direction: column;
         /* min-height: 100vh; */
         /* min-height: 5000px; */
+        
     }
 
     .main-section {
         padding: 0;
+        
     }
     
 
@@ -709,18 +716,17 @@ footer {
         gap: 50px;
         margin: 0;
         /* margin-top: auto;  tenté pour évité la troncation avec min heigh 100 sv sur le main container, ne fonctionne pas*/
-        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
         /* min-height: 600px; */
-     /*    
-     position: relative;
-    width: 100%; 
-      height: auto; */
-      /* background-color: rgba(255, 0, 0, 0.5); */
+        /* padding-bottom: env(safe-area-inset-bottom); */
+     
     }
     
     .footer-section{
         padding: 0px;
         width: 100%;
+          
     }
    
 }
