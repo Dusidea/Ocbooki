@@ -209,11 +209,12 @@ nav {
 .filter{
     display: flex;
     align-items: center;
+    gap: 15px;
 }
 
 .filter-button-group{
     display: flex;
-   
+    gap: 15px;
 }
 
 .filter-button{
@@ -221,7 +222,6 @@ nav {
     border-radius: 25px;
     border: 2px solid var(--main-bg-color);
     padding: 4px 19px 4px 19px;
-    margin: 7.5px;
     gap: 10px;
     font-size: 17px;
     font-weight: 700;
@@ -509,10 +509,6 @@ footer {
   
     body {
         margin: 0;
-        /* align-items: flex-start; */
-        width: 100%;
-        /* height: 100%; */
-
     } 
 
 
@@ -619,8 +615,6 @@ footer {
     .filter{
         display: flex;
         align-items: flex-start;
-        /* padding-bottom: 15px ;
-        margin-bottom: 15px ; */
         flex-direction: column;
         gap : 20px;
     }
@@ -632,14 +626,15 @@ footer {
         align-items: center;
         font-size: 14px;
         justify-content: center;
+        gap : 10px;
         
     }
 
    .filter-button{
         /* afin que chaque bouton occupe 50% de l'espace
-         (et je soustrais 7,5*4px de marge des boutons pour
+         (et je soustrais 10px*2 de gap entre boutons pour
           que ça ne dépasse pas)*/
-        flex: 0 0 calc(50% - 30px);
+        flex: 0 0 calc(50% - 20px);
         align-items: center;
         display: flex;
         
@@ -688,11 +683,7 @@ footer {
 
     .populaires-cards{
         flex-direction: column;  
-        
     }
-    /* .populaires-cards .card {
-        margin: 0;     
-    } */
 
     .populaires-cards .card {
         margin: 0;     
